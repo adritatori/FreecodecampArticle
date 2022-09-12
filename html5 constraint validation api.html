@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>html5 constraint validation api</title>
+</head>
+<body>
+<form>
+	<label for="firstname"> First Name: </label>
+	<input type="text" name="firstname" required id="firstname">
+	<button>Submit</button>
+</form>
+
+	<script type="text/javascript">
+		const nameField = document.querySelector("input");
+
+			nameField.addEventListener("input", () => {
+			  nameField.setCustomValidity("");
+			  nameField.checkValidity();
+			  console.log(nameField.checkValidity());
+			});
+
+		nameField.addEventListener("invalid", () => {
+		  nameField.setCustomValidity("Please fill in your Name First .");
+		});
+	</script>
+</body>
+</html>
